@@ -10,11 +10,8 @@ require("dotenv").config();
 const db = require("knex")({
   client: "pg",
   connection: {
-    host: "127.0.0.1",
-    port: 5432,
-    user: "postgres",
-    password: process.env.DATABASE_PASSWORD,
-    database: "smart-brain",
+    host: process.env.DATABASE_URL,
+    ssl: true,
   },
 });
 const app = express();
